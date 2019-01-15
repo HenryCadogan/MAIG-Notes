@@ -1,0 +1,45 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+    \section{Communication}
+    In a multi-agent system there is often a need for the agents to transmit information to each other in order to optimise performance 
+    \subsection{Definitions}
+        \begin{definition}
+            \begin{itemize}
+                \item \textbf{Informational Communication}: The communication is solely in the form of facts with no intention of changing the other players decision.
+                \item\textbf{Motivational Communication}: The communication has intent to influence the other players decision. This does not have to a be truthful fact, it can be a bluff or an incorrect piece of information.
+            \end{itemize}
+        \end{definition}
+        
+    \subsection{Types of communication}
+    The following are two methods of actually conveying the information in the types defined above. These can both be motivational forms of communication.
+        \begin{definition}
+            \begin{itemize}
+                \item \textbf{Cheap Talk} Is free and performed before taking an action. This communication does not have to be truthful.
+                \item \textbf{Signalling Games} This is a method of communicating where the action of a player gives some information to the other players in the game.
+            \end{itemize}
+        \end{definition}
+        
+    \subsection{Utterance Types}
+        \begin{definition}
+            \begin{itemize}
+                \item \textbf{Self Committing} When you reveal your decision, provided it is believed by the other player then your decision becomes the optimal one.
+                \item \textbf{Self Revealing} You only utter something when you have the intention to play that action. This has no bearing on the optimality of the action itself.
+            \end{itemize}
+        \end{definition}
+        
+        An example of cheap talk: 
+        \begin{table}[h]
+            \centering
+            \begin{tabular}{c|c c}
+                    & $B$       & $G$ \\
+                    \hline
+                 $B$  & (-1,-1)    & (-4,0) \\
+                 $G$  & (0,-4)    & (-3,-3)
+            \end{tabular}
+            \caption{TCP/IP Game}
+            \label{tab:TCP_IP_GAME}
+        \end{table}
+        
+        In this instance if player 1 were to say \textit{"I will play back off"} and player 2 believes it, then player 2 will play $G$ since they get a higher payoff (-1 for B < 0 for G), and if they think that player 1 is lying and is going to play $G$ , then they will play $G$ also for a higher payoff in that instance too (-4 for B < -3 for G). Hence in this game cheap talk communication does not change the outcome. Both players should play $G$.
+\end{document}

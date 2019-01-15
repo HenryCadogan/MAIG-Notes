@@ -1,0 +1,61 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage{subfiles,textcomp,parcolumns,multirow,graphicx,sectsty,mathtools,hyperref,fullpage,pgffor,animate}
+\usepackage[usetwoside=false]{mdframed}
+\usepackage[margin=0.6in]{geometry}
+\usepackage[dvipsnames,table]{xcolor}
+
+
+\setlength{\parindent}{0pt}
+
+%EXTRA FORMATTING HERE
+\newenvironment{cenv}[1]
+    {\begin{center}
+        \begin{mdframed}[backgroundcolor=#1!40, leftmargin=24pt, rightmargin=24pt, nobreak=true]
+        }
+        {
+        \end{mdframed}
+    \end{center}
+    }
+
+\newenvironment{definition}{
+    \begin{cenv}{Yellow}
+    }
+    {
+    \end{cenv}
+}
+
+\sectionfont{\textcolor{Red}}
+
+\newcommand\includedir[1]{
+    \setcounter{NumFiles}{0}
+    \setboolean{stop}{false}
+    \whiledo{\NOT\boolean{stop}}{
+        \stepcounter{NumFiles}
+        \IfFileExists{#1/Lecture\theNumFiles.tex}{
+                \subfile{#1/Lecture\theNumFiles.tex}
+            }{
+                \addtocounter{NumFiles}{-1}
+                \setboolean{stop}{true}
+            }
+        }
+    }
+
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+%END EXTRA FORMATTING
+\title{MAIG Revision Notes}
+\author{Henry Cadogan}
+\date{\today}
+
+\begin{document}
+    \newcounter{NumFiles}
+    \newboolean{stop}
+    
+    \maketitle
+    \tableofcontents
+    \newpage
+    \includedir{Lectures/Term1}
+    \includedir{Lectures/Term2}
+    
+
+\end{document}
